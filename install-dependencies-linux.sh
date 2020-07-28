@@ -3,10 +3,10 @@
 echo
 echo '### Installing Operating System Dependencies ###'
 echo
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+wget -q -O - https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+wget -q -O -  https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 
 sudo apt update
