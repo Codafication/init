@@ -133,6 +133,21 @@ echo '****************************************************************'
 echo
 read -p "Press [Enter] key to continue..."
 
+echo '### Installing VS Code ###'
+sudo snap install --classic code
+
+echo '### Installing VS Extensions ###'
+/usr/bin/code --install-extension esbenp.prettier-vscode
+/usr/bin/code --install-extension foxundermoon.shell-format
+/usr/bin/code --install-extension huizhou.githd
+/usr/bin/code --install-extension letrieu.expand-region
+/usr/bin/code --install-extension mechatroner.rainbow-csv
+/usr/bin/code --install-extension mhutchie.git-graph
+/usr/bin/code --install-extension mitchdenny.ecdc
+/usr/bin/code --install-extension netcorext.uuid-generator
+/usr/bin/code --install-extension Tyriar.sort-lines
+/usr/bin/code --install-extension wmaurer.change-case
+
 echo
 echo "Please log out or reboot for your new permission group to enumerate."
 echo
