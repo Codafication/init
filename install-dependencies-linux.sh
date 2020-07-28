@@ -148,6 +148,11 @@ echo '### Installing VS Extensions ###'
 /usr/bin/code --install-extension Tyriar.sort-lines
 /usr/bin/code --install-extension wmaurer.change-case
 
+echo '### Installing Azure CLI ###'
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+echo '### Logging in to the Azure CLI ###'
+/usr/bin/az login
+
 echo
 echo "Please log out or reboot for your new permission group to enumerate."
 echo
