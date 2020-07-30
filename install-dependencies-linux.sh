@@ -6,7 +6,7 @@ echo
 wget -q -O - https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
-wget -q -O -  https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+wget -q -O - https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 
 sudo apt update
@@ -147,6 +147,10 @@ echo '### Installing VS Extensions ###'
 /usr/bin/code --install-extension netcorext.uuid-generator
 /usr/bin/code --install-extension Tyriar.sort-lines
 /usr/bin/code --install-extension wmaurer.change-case
+
+echo '### Installing Chrome ###'
+sudo wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/chrome.deb
+sudo dpkg -i /tmp/chrome.deb
 
 echo '### Installing Azure CLI ###'
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
