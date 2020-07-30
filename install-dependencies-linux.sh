@@ -30,6 +30,10 @@ echo "yarn installed: $(yarn --version)"
 cd /tmp
 pwd
 
+echo '### Installing Chrome ###'
+sudo wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/chrome.deb
+sudo dpkg -i /tmp/chrome.deb
+
 echo
 echo '### Installing nvm ###'
 echo
@@ -147,10 +151,6 @@ echo '### Installing VS Extensions ###'
 /usr/bin/code --install-extension netcorext.uuid-generator
 /usr/bin/code --install-extension Tyriar.sort-lines
 /usr/bin/code --install-extension wmaurer.change-case
-
-echo '### Installing Chrome ###'
-sudo wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/chrome.deb
-sudo dpkg -i /tmp/chrome.deb
 
 echo '### Installing Azure CLI ###'
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
