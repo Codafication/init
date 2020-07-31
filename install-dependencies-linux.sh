@@ -138,7 +138,8 @@ echo
 read -p "Press [Enter] key to continue..."
 
 echo '### Installing VS Code ###'
-sudo snap install --classic code
+sudo wget -q https://go.microsoft.com/fwlink/?LinkID=760868 -O /tmp/vscode.deb
+sudo apt install /tmp/vscode.deb
 
 echo '### Installing VS Extensions ###'
 /usr/bin/code --install-extension esbenp.prettier-vscode
@@ -151,6 +152,9 @@ echo '### Installing VS Extensions ###'
 /usr/bin/code --install-extension netcorext.uuid-generator
 /usr/bin/code --install-extension Tyriar.sort-lines
 /usr/bin/code --install-extension wmaurer.change-case
+
+echo
+echo "Please run ibus-setup and remove the emoji hotkey to use ctrl-shift-e in VS Code again!"
 
 echo '### Installing Azure CLI ###'
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
