@@ -154,7 +154,11 @@ echo '### Installing VS Extensions ###'
 /usr/bin/code --install-extension wmaurer.change-case
 
 echo
-echo "Please run ibus-setup and remove the emoji hotkey to use ctrl-shift-e in VS Code again!"
+echo "### Please run ibus-setup and remove the emoji hotkey to use ctrl-shift-e in VS Code again! ###"
+echo
+
+echo '### Installing dbeaver ###'
+sudo snap install dbeaver-ce
 
 echo '### Installing Azure CLI ###'
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
