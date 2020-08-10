@@ -139,7 +139,7 @@ read -p "Press [Enter] key to continue..."
 
 echo '### Installing VS Code ###'
 sudo wget -q https://go.microsoft.com/fwlink/?LinkID=760868 -O /tmp/vscode.deb
-sudo apt install /tmp/vscode.deb
+sudo apt install -y /tmp/vscode.deb
 
 echo '### Installing VS Extensions ###'
 /usr/bin/code --install-extension esbenp.prettier-vscode
@@ -181,6 +181,12 @@ echo '### Installing Azure CLI ###'
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 echo '### Logging in to the Azure CLI ###'
 /usr/bin/az login
+
+echo '### Logging in to the Azure Container Registry ###'
+/usr/bin/az acr login --name=codafication
+
+echo '### Install pgsql client ###'
+sudo apt install -y postgresql-client
 
 echo
 echo "Please log out or reboot for your new permission group to enumerate."
