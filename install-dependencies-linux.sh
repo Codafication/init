@@ -160,6 +160,23 @@ echo
 echo '### Installing dbeaver ###'
 sudo snap install dbeaver-ce
 
+echo '### Swap file ###'
+
+FILE=/swapfile
+if [ -f "$FILE" ]; then
+  echo "Swap file already exists... Skipping..."
+else
+  read -p "Would you like to create a 4G swap file? (y/n)" -n 1 -r
+  echo
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    sudo dd if=/dev/zero of=/swapfile bs=1MiB count=4096
+    sudo chmod 600 /swapfile
+    sudo mkswap /swapfile
+    sudo swapon /swapfile
+    echo "/swapfile swap swap defaults 0 0" | sudo tee -a /etc/fstab
+  fi
+fi
+
 echo '### Installing Azure CLI ###'
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 echo '### Logging in to the Azure CLI ###'
