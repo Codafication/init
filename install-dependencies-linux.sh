@@ -128,6 +128,11 @@ sudo microk8s enable registry
 echo "microk8s: Creating ~/.kube/microk8s.config"
 sudo microk8s kubectl config view --raw >$HOME/.kube/microk8s.config
 
+echo "microk8s: fixing network change detection on microk8s"
+sudo systemctl stop snap.microk8s.daemon-apiserver-kicker.service
+sudo sed "s/ExecStart=.*/ExecStart=echo \"false start\"/g" /etc/systemd/system/snap.microk8s.daemon-apiserver-kicker.service -i
+sudo systemctl daemon-reload
+
 echo
 echo "Please add the following to your ~/.bashrc or equivalent:"
 echo
