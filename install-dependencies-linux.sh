@@ -19,7 +19,8 @@ sudo apt install -y apt-transport-https \
   lolcat \
   openssl \
   software-properties-common \
-  yarn
+  yarn \
+  postgresql-client
 
 sudo apt autoremove -y
 
