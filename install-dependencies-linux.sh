@@ -112,6 +112,12 @@ echo
 sudo snap install microk8s --classic --channel=1.18/stable
 sudo usermod -a -G microk8s $USER
 
+echo
+echo '### Install telepresence ###'
+echo
+sudo apt install -y --no-install-recommends telepresence
+curl -s https://packagecloud.io/install/repositories/datawireio/telepresence/script.deb.sh | sudo bash
+
 echo "--service-node-port-range=80-32767" | sudo tee -a /var/snap/microk8s/current/args/kube-apiserver
 echo "microk8s: Restarting snap.microk8s.daemon-apiserver"
 sudo systemctl restart snap.microk8s.daemon-apiserver
