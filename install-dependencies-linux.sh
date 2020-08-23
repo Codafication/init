@@ -59,8 +59,9 @@ npm login
 echo
 echo '### Installing roomservice ###'
 echo
-curl -L https://github.com/curtiswilkinson/roomservice-rust/releases/download/v4.0.0/x86_64-unknown-linux-musl.tar.gz | tar xz
-sudo cp target/x86_64-unknown-linux-musl/roomservice /usr/local/bin && rm -rf target roomservice.tar.gz
+curl -L https://github.com/curtiswilkinson/roomservice-rust/releases/download/v4.0.1/x86_64-unknown-linux-musl.tar.gz | tar xz
+ 
+cp target/x86_64-unknown-linux-musl/release/roomservice /usr/local/bin && rm -rf target roomservice.tar.gz
 
 echo
 echo '### Installing AWS CLI ###'
@@ -169,8 +170,8 @@ echo
 echo "### Please run ibus-setup and remove the emoji hotkey to use ctrl-shift-e in VS Code again! ###"
 echo
 
-echo '### Installing dbeaver ###'
-sudo snap install dbeaver-ce
+# echo '### Installing dbeaver ###'
+# sudo snap install dbeaver-ce
 
 echo '### Swap file ###'
 

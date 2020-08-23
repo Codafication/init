@@ -16,8 +16,9 @@ echo "Node installed: $(node -v)"
 echo
 echo '### Installing roomservice ###'
 echo
-curl -L https://github.com/curtiswilkinson/roomservice-rust/releases/download/v4.0.0/x86_64-apple-darwin.tar.gz | tar xz
-sudo cp target/x86_64-apple-darwin/roomservice /usr/local/bin && rm -rf target roomservice.tar.gz
+curl -L https://github.com/curtiswilkinson/roomservice-rust/releases/download/v4.0.1/x86_64-apple-darwin.tar.gz | tar xz
+ 
+cp target/x86_64-apple-darwin/roomservice /usr/local/bin && rm -rf target roomservice.tar.gz
 
 echo
 echo '### Brew installations ###'
