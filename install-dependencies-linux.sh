@@ -201,6 +201,21 @@ echo '### Logging in to the Azure Container Registry ###'
 echo '### Install pgsql client ###'
 sudo apt install -y postgresql-client
 
+echo '### Install typescript'
+yarn global add typescript
+
+echo '### Install ts-node'
+yarn global add ts-node
+
+echo '### Install dbeaver'
+sudo apt-get install wget
+wget -O - https://dbeaver.io/debs/dbeaver.gpg.key | sudo apt-key add -
+echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
+sudo apt-get update && sudo apt-get install dbeaver-ce
+
+echo '### Install k8s-operations'
+yarn global add @teamcodafication/k8s-operations
+
 echo
 echo "Please log out or reboot for your new permission group to enumerate."
 echo
