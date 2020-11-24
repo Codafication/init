@@ -51,7 +51,7 @@ echo "microk8s: Creating ~/.kube/microk8s.config"
 sudo microk8s kubectl config view --raw >$HOME/.kube/microk8s.config
 multipass set client.primary-name=microk8s-vm
 
-echo "Please add the following to your ~/.bashrc or equivalent:"
+echo "Please add the following to your ~/.bashrc, ~/.zshrc, or equivalent:"
 echo
 echo '****************************************************************'
 echo 'export KUBECONFIG=$HOME/.kube/config:$HOME/.kube/microk8s.config'

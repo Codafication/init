@@ -142,7 +142,7 @@ sudo sed "s/ExecStart=.*/ExecStart=echo \"false start\"/g" /etc/systemd/system/s
 sudo systemctl daemon-reload
 
 echo
-echo "Please add the following to your ~/.bashrc or equivalent:"
+echo "Please add the following to your ~/.bashrc, ~/.zshrc, or equivalent:"
 echo
 echo '****************************************************************'
 echo 'export KUBECONFIG=$HOME/.kube/config:$HOME/.kube/microk8s.config'
