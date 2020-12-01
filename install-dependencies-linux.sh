@@ -60,7 +60,7 @@ echo
 echo '### Installing roomservice ###'
 echo
 curl -L https://github.com/curtiswilkinson/roomservice-rust/releases/download/v4.0.1/x86_64-unknown-linux-musl.tar.gz | tar xz
- 
+
 cp target/x86_64-unknown-linux-musl/release/roomservice /usr/local/bin && rm -rf target roomservice.tar.gz
 
 echo
@@ -110,8 +110,11 @@ yarn install
 echo
 echo '### Install microk8s ###'
 echo
-sudo snap install microk8s --classic --channel=1.18/stable
+sudo snap install microk8s --classic --channel=1.19/stable
 sudo usermod -a -G microk8s $USER
+
+echo "microk8s: Disabling HA"
+sudo microk8s disable ha
 
 echo
 echo '### Install telepresence ###'
