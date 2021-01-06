@@ -21,43 +21,9 @@ curl -L https://github.com/curtiswilkinson/roomservice-rust/releases/download/v4
 cp target/x86_64-apple-darwin/roomservice /usr/local/bin && rm -rf target roomservice.tar.gz
 
 echo
-echo '### Brew installations ###'
-echo
-brew install kubectl yarn lolcat ubuntu/microk8s/microk8s
-
-echo
 echo '### Install Node.js packages ###'
 echo
 yarn install
-
-echo
-echo '### Install microk8s ###'
-echo
-brew install ubuntu/microk8s/microk8s
-microk8s install
-
-echo "microk8s: Waiting for ready status"
-sudo microk8s status --wait-ready
-
-echo "microk8s: Get nodes - just for fun!"
-sudo microk8s kubectl get nodes
-
-echo "microk8s: Enabling add-ons"
-sudo microk8s enable dns
-sudo microk8s enable dashboard
-sudo microk8s enable registry
-
-echo "microk8s: Creating ~/.kube/microk8s.config"
-sudo microk8s kubectl config view --raw >$HOME/.kube/microk8s.config
-multipass set client.primary-name=microk8s-vm
-
-echo "Please add the following to your ~/.bashrc or equivalent:"
-echo
-echo '****************************************************************'
-echo 'export KUBECONFIG=$HOME/.kube/config:$HOME/.kube/microk8s.config'
-echo '****************************************************************'
-echo
-read -p "Press [Enter] key to continue..."
 
 echo
 echo "Please log out or reboot for your new permission group to enumerate."

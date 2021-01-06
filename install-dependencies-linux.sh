@@ -107,14 +107,6 @@ echo '### Install Node.js packages ###'
 echo
 yarn install
 
-echo
-echo '### Install microk8s ###'
-echo
-sudo snap install microk8s --classic --channel=1.19/stable
-sudo usermod -a -G microk8s $USER
-
-echo "microk8s: Disabling HA"
-sudo microk8s disable ha
 
 echo
 echo '### Install telepresence ###'
@@ -122,27 +114,6 @@ echo
 sudo apt install -y --no-install-recommends telepresence
 curl -s https://packagecloud.io/install/repositories/datawireio/telepresence/script.deb.sh | sudo bash
 
-echo "--service-node-port-range=80-32767" | sudo tee -a /var/snap/microk8s/current/args/kube-apiserver
-echo "microk8s: Restarting snap.microk8s.daemon-apiserver"
-sudo systemctl restart snap.microk8s.daemon-apiserver
-
-echo "microk8s: Waiting for ready status"
-sudo microk8s status --wait-ready
-echo "microk8s: Get nodes - just for fun!"
-sudo microk8s kubectl get nodes
-
-echo "microk8s: Enabling add-ons"
-sudo microk8s enable dns
-sudo microk8s enable dashboard
-sudo microk8s enable registry
-
-echo "microk8s: Creating ~/.kube/microk8s.config"
-sudo microk8s kubectl config view --raw >$HOME/.kube/microk8s.config
-
-echo "microk8s: fixing network change detection on microk8s"
-sudo systemctl stop snap.microk8s.daemon-apiserver-kicker.service
-sudo sed "s/ExecStart=.*/ExecStart=echo \"false start\"/g" /etc/systemd/system/snap.microk8s.daemon-apiserver-kicker.service -i
-sudo systemctl daemon-reload
 
 echo
 echo "Please add the following to your ~/.bashrc or equivalent:"
