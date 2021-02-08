@@ -107,13 +107,11 @@ echo '### Install Node.js packages ###'
 echo
 yarn install
 
-
 echo
 echo '### Install telepresence ###'
 echo
 sudo apt install -y --no-install-recommends telepresence
 curl -s https://packagecloud.io/install/repositories/datawireio/telepresence/script.deb.sh | sudo bash
-
 
 echo
 echo "Please add the following to your ~/.bashrc or equivalent:"
@@ -188,7 +186,7 @@ echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list
 sudo apt-get update && sudo apt-get install dbeaver-ce
 
 echo '### Install k8s-operations'
-yarn global add @teamcodafication/k8s-operations
+npm i -g @teamcodafication/k8s-operations
 
 echo
 echo "Please log out or reboot for your new permission group to enumerate."
