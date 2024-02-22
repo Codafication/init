@@ -36,7 +36,7 @@ echo '### Installing Chrome ###'
 sudo wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/chrome.deb
 sudo dpkg -i /tmp/chrome.deb
 
-
+echo '### Installing Open Lens 6.2.5 ###"
 wget -q -O - https://github.com/MuhammedKalkan/OpenLens/releases/download/v6.2.5/OpenLens-6.2.5.amd64.deb -O /tmp/openlens.deb
 sudo dpkg -i /tmp/openlens.deb
 
