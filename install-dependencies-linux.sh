@@ -9,6 +9,8 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 wget -q -O - https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 
+
+
 sudo apt update
 sudo apt install -y apt-transport-https \
   build-essential \
@@ -16,7 +18,6 @@ sudo apt install -y apt-transport-https \
   curl \
   docker-ce \
   firefox \
-  lolcat \
   openssl \
   software-properties-common \
   yarn \
@@ -34,6 +35,10 @@ pwd
 echo '### Installing Chrome ###'
 sudo wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/chrome.deb
 sudo dpkg -i /tmp/chrome.deb
+
+
+wget -q -O - https://github.com/MuhammedKalkan/OpenLens/releases/download/v6.2.5/OpenLens-6.2.5.amd64.deb -O /tmp/openlens.deb
+sudo dpkg -i /tmp/openlens.deb
 
 echo
 echo '### Installing nvm ###'
@@ -125,25 +130,6 @@ read -p "Press [Enter] key to continue..."
 echo '### Installing VS Code ###'
 sudo wget -q https://go.microsoft.com/fwlink/?LinkID=760868 -O /tmp/vscode.deb
 sudo apt install -y /tmp/vscode.deb
-
-echo '### Installing VS Extensions ###'
-/usr/bin/code --install-extension esbenp.prettier-vscode
-/usr/bin/code --install-extension foxundermoon.shell-format
-/usr/bin/code --install-extension huizhou.githd
-/usr/bin/code --install-extension letrieu.expand-region
-/usr/bin/code --install-extension mechatroner.rainbow-csv
-/usr/bin/code --install-extension mhutchie.git-graph
-/usr/bin/code --install-extension mitchdenny.ecdc
-/usr/bin/code --install-extension netcorext.uuid-generator
-/usr/bin/code --install-extension Tyriar.sort-lines
-/usr/bin/code --install-extension wmaurer.change-case
-
-echo
-echo "### Please run ibus-setup and remove the emoji hotkey to use ctrl-shift-e in VS Code again! ###"
-echo
-
-# echo '### Installing dbeaver ###'
-# sudo snap install dbeaver-ce
 
 echo '### Swap file ###'
 
