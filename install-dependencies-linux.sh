@@ -115,8 +115,9 @@ yarn install
 echo
 echo '### Install telepresence ###'
 echo
-sudo apt install -y --no-install-recommends telepresence
-curl -s https://packagecloud.io/install/repositories/datawireio/telepresence/script.deb.sh | sudo bash
+sudo curl -fL https://app.getambassador.io/download/tel2oss/releases/download/v2.17.0/telepresence-linux-amd64 -o /usr/local/bin/telepresence
+sudo chmod a+x /usr/local/bin/telepresence
+echo
 
 echo
 echo "Please add the following to your ~/.bashrc or equivalent:"
